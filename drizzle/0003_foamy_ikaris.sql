@@ -1,0 +1,1 @@
+ALTER TABLE "trades" ADD COLUMN "trade_pair" varchar(20);

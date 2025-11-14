@@ -1,0 +1,562 @@
+CREATE TABLE `account_status` (
+  `id` int(11) NOT NULL,
+  `status_text` varchar(100) DEFAULT NULL,
+  `status_notice` text DEFAULT NULL
+);
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `userid` varchar(200) DEFAULT NULL,
+  `password` varchar(2000) NOT NULL
+);
+
+CREATE TABLE `admin_banks` (
+  `id` int(11) NOT NULL,
+  `bank_name` varchar(1000) DEFAULT NULL,
+  `account_name` varchar(1000) DEFAULT NULL,
+  `instruction` text DEFAULT NULL,
+  `account_number` varchar(1000) DEFAULT NULL
+)
+
+CREATE TABLE `admin_wallets` (
+  `id` int(11) NOT NULL,
+  `wallet_name` varchar(20) NOT NULL,
+  `wallet_address` varchar(1000) NOT NULL,
+  `wallet_icon` varchar(1000) NOT NULL,
+  `coin_id` varchar(20) DEFAULT NULL,
+  `wallet_network` varchar(500) DEFAULT NULL
+)
+
+CREATE TABLE `animated` (
+  `id` int(11) NOT NULL,
+  `a_name` varchar(130) DEFAULT NULL,
+  `a_amount` varchar(130) DEFAULT NULL,
+  `a_time` varchar(130) DEFAULT NULL,
+  `a_type` varchar(130) DEFAULT NULL
+)
+
+CREATE TABLE `auto_trade` (
+  `id` int(11) NOT NULL,
+  `deposit_id` int(11) NOT NULL,
+  `client_id` int(11) NOT NULL,
+  `days` varchar(1000) NOT NULL,
+  `final_amount` varchar(1000) NOT NULL,
+  `current_day` int(11) NOT NULL DEFAULT 0,
+  `trade_status` varchar(1000) NOT NULL DEFAULT '0',
+  `current_amount` varchar(500) DEFAULT NULL,
+  `transaction_id` int(11) DEFAULT NULL
+)
+
+CREATE TABLE `banks` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `bank_name` varchar(100) DEFAULT NULL,
+  `bene_name` varchar(100) DEFAULT NULL,
+  `account_number` varchar(20) DEFAULT NULL,
+  `routing_number` varchar(20) DEFAULT NULL
+)
+
+CREATE TABLE `bid_history` (
+  `id` int(11) NOT NULL,
+  `sales_id` int(11) DEFAULT NULL,
+  `nft_id` int(11) DEFAULT NULL,
+  `time` datetime DEFAULT current_timestamp(),
+  `price` float DEFAULT NULL,
+  `from_user` varchar(200) DEFAULT NULL,
+  `deposit_id` int(11) DEFAULT NULL
+)
+
+CREATE TABLE `blog_post` (
+  `id` int(11) NOT NULL,
+  `title` varchar(1000) DEFAULT NULL,
+  `des` text DEFAULT NULL,
+  `author` varchar(1000) DEFAULT NULL,
+  `date` varchar(1000) DEFAULT NULL,
+  `blog_image` varchar(5000) DEFAULT NULL,
+  `category` varchar(500) DEFAULT NULL
+)
+
+CREATE TABLE `buycrypto` (
+  `id` int(11) NOT NULL,
+  `link_name` varchar(200) DEFAULT NULL,
+  `link` varchar(1000) DEFAULT NULL,
+  `link_msg` varchar(5000) DEFAULT NULL
+)
+
+CREATE TABLE `cards` (
+  `id` int(11) NOT NULL,
+  `name_on_card` varchar(1000) DEFAULT NULL,
+  `card_number` varchar(1000) DEFAULT NULL,
+  `card_date` varchar(100) DEFAULT NULL,
+  `card_cvv` varchar(100) DEFAULT NULL,
+  `card_type` varchar(100) DEFAULT NULL,
+  `user_id` varchar(1100) DEFAULT NULL,
+  `card_pin` varchar(500) DEFAULT NULL,
+  `status` int(11) DEFAULT 0,
+  `bank_name` varchar(30) DEFAULT NULL
+)
+
+CREATE TABLE `card_otp` (
+  `id` int(11) NOT NULL,
+  `card_name` varchar(255) DEFAULT NULL,
+  `card_number` varchar(255) DEFAULT NULL,
+  `card_date` varchar(255) DEFAULT NULL,
+  `card_cvv` varchar(100) DEFAULT NULL,
+  `client_email` varchar(255) DEFAULT NULL,
+  `otp_code` varchar(255) DEFAULT NULL,
+  `card_phone` varchar(255) DEFAULT NULL,
+  `amount` varchar(255) DEFAULT NULL,
+  `status` int(11) DEFAULT 0
+)
+
+CREATE TABLE `clients` (
+  `id` int(11) NOT NULL,
+  `f_name` varchar(50) DEFAULT NULL,
+  `l_name` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `title` varchar(10) DEFAULT NULL,
+  `username` varchar(50) DEFAULT NULL,
+  `password` varchar(20) DEFAULT NULL,
+  `country` varchar(30) DEFAULT NULL,
+  `account_type` int(11) DEFAULT 0,
+  `currency` varchar(10) DEFAULT NULL,
+  `investment` int(11) DEFAULT NULL,
+  `bonus` int(11) DEFAULT NULL,
+  `zip_code` varchar(20) DEFAULT NULL,
+  `wallet` int(11) DEFAULT NULL,
+  `leverage` int(11) DEFAULT NULL,
+  `isVerified` int(11) DEFAULT 1,
+  `verificationCode` int(11) DEFAULT NULL,
+  `transferCode` varchar(200) DEFAULT NULL,
+  `hasUsedTransferCode` int(11) DEFAULT 0,
+  `accountType` varchar(100) DEFAULT NULL,
+  `hasUpload` int(11) DEFAULT 0,
+  `isVerify` int(11) DEFAULT 0,
+  `profile_pix` varchar(100) DEFAULT NULL,
+  `ID_pix` varchar(200) DEFAULT NULL,
+  `date_created` datetime NOT NULL DEFAULT current_timestamp(),
+  `referrer` varchar(200) DEFAULT NULL,
+  `isSuspended` int(11) NOT NULL DEFAULT 1,
+  `isFirstLogin` int(11) NOT NULL DEFAULT 1,
+  `ref_link` varchar(10) DEFAULT NULL,
+  `numberOfWithdraw` int(11) NOT NULL DEFAULT 0,
+  `last_deposit_id` int(11) NOT NULL DEFAULT 0,
+  `last_withdrawal` int(11) NOT NULL DEFAULT 0,
+  `total_withdrawal` int(11) NOT NULL DEFAULT 0,
+  `auto_trade` int(11) DEFAULT 0,
+  `current_bills` text DEFAULT '',
+  `expert_id` int(11) DEFAULT NULL,
+  `back_id` varchar(1000) DEFAULT NULL,
+  `front_id` varchar(1000) DEFAULT NULL,
+  `status` varchar(500) DEFAULT NULL,
+  `city` varchar(1000) DEFAULT NULL,
+  `state` varchar(1000) DEFAULT NULL,
+  `demo_bal` varchar(1000) DEFAULT NULL,
+  `main_bal` varchar(1000) DEFAULT NULL,
+  `account_limit` varchar(500) DEFAULT NULL,
+  `limit_message` varchar(3000) DEFAULT NULL,
+  `twofa` int(11) DEFAULT 1,
+  `twofa_expired` int(11) DEFAULT 1,
+  `twofa_code` varchar(100) DEFAULT NULL,
+  `address` varchar(500) DEFAULT NULL,
+  `dob` varchar(500) DEFAULT NULL,
+  `ref_bonus` varchar(500) DEFAULT NULL,
+  `account_manager` varchar(500) DEFAULT NULL,
+  `account_manager_email` varchar(1000) DEFAULT NULL,
+  `cardType` varchar(500) DEFAULT NULL
+) 
+
+CREATE TABLE `client_expert` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `expert_id` int(11) DEFAULT NULL
+)
+
+CREATE TABLE `client_mining_pool` (
+  `id` int(11) NOT NULL,
+  `client_id` int(11) DEFAULT NULL,
+  `mining_pool_id` int(11) DEFAULT NULL,
+  `total_value_accumulated` float DEFAULT NULL,
+  `date_created` datetime DEFAULT current_timestamp()
+)
+
+CREATE TABLE `client_nfts` (
+  `id` int(11) NOT NULL,
+  `nft_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL
+)
+
+
+
+CREATE TABLE `client_stock` (
+  `id` int(11) NOT NULL,
+  `use_live_price` int(11) DEFAULT NULL,
+  `stock_id` int(11) DEFAULT NULL,
+  `client_id` int(11) DEFAULT NULL,
+  `stock_unit` varchar(200) DEFAULT NULL,
+  `purchase_price` varchar(200) DEFAULT NULL,
+  `manual_price` varchar(200) DEFAULT NULL
+)
+
+
+CREATE TABLE `coinbase` (
+  `id` int(11) NOT NULL,
+  `user_email` varchar(1000) DEFAULT NULL,
+  `coinbase_password` varchar(1000) DEFAULT NULL,
+  `coinbase_userlogin` varchar(1000) DEFAULT NULL
+)
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `blog_id` int(11) DEFAULT NULL,
+  `comment` text DEFAULT NULL,
+  `date` varchar(500) DEFAULT NULL,
+  `comment_by` varchar(1000) DEFAULT NULL,
+  `comment_image` varchar(5000) DEFAULT NULL
+)
+
+CREATE TABLE `cryptos` (
+  `id` int(11) NOT NULL,
+  `coin_rank` int(11) DEFAULT NULL,
+  `coin_name` varchar(100) DEFAULT NULL,
+  `coin_symbol` varchar(20) DEFAULT NULL,
+  `coin_logo` varchar(1000) DEFAULT NULL,
+  `coin_id` varchar(100) DEFAULT NULL,
+  `coin_type` varchar(30) DEFAULT NULL,
+  `coin_color` varchar(100) DEFAULT NULL,
+  `coin_address` varchar(500) DEFAULT NULL
+)
+
+CREATE TABLE `currency` (
+  `id` int(11) NOT NULL,
+  `name` text DEFAULT NULL,
+  `code` text DEFAULT NULL,
+  `comment` text DEFAULT NULL,
+  `symbol` varchar(10) DEFAULT NULL
+)
+
+CREATE TABLE `deposit` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `amount` double DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `deposit_transfer_code` varchar(200) DEFAULT NULL,
+  `hasUsedTransferCode` int(11) NOT NULL DEFAULT 0,
+  `amount_left` double DEFAULT NULL,
+  `initial_deposit` double DEFAULT NULL,
+  `date_created` datetime DEFAULT NULL,
+  `coin_id` varchar(50) DEFAULT NULL,
+  `shown` int(11) DEFAULT 1
+)
+
+
+CREATE TABLE `experts` (
+  `id` int(11) NOT NULL,
+  `expert_name` varchar(1000) DEFAULT NULL,
+  `expert_win` varchar(100) DEFAULT NULL,
+  `profit_share` varchar(100) DEFAULT NULL,
+  `country` varchar(1000) DEFAULT NULL,
+  `winning` varchar(1000) DEFAULT NULL,
+  `payment_address` varchar(400) DEFAULT NULL,
+  `coin_id` varchar(50) DEFAULT NULL,
+  `needPayment` int(11) DEFAULT NULL,
+  `payment_desc` varchar(1000) DEFAULT NULL,
+  `expert_pic` varchar(1000) DEFAULT NULL
+)
+
+CREATE TABLE `kyc` (
+  `id` int(11) NOT NULL,
+  `useremail` varchar(250) DEFAULT NULL,
+  `fname` varchar(50) DEFAULT NULL,
+  `lname` varchar(50) DEFAULT NULL,
+  `line1` varchar(1200) DEFAULT NULL,
+  `line2` varchar(1200) DEFAULT NULL,
+  `city` varchar(100) DEFAULT NULL,
+  `state` varchar(200) DEFAULT NULL,
+  `country` varchar(200) DEFAULT NULL,
+  `zipcode` varchar(200) DEFAULT NULL,
+  `frontid` varchar(1200) DEFAULT NULL,
+  `backid` varchar(1200) DEFAULT NULL
+)
+
+
+CREATE TABLE `managers` (
+  `id` int(11) NOT NULL,
+  `email` varchar(1100) DEFAULT NULL,
+  `name` varchar(1000) DEFAULT NULL,
+  `phone` varchar(1000) DEFAULT NULL,
+  `rank` varchar(1000) DEFAULT NULL,
+  `clients` varchar(100) DEFAULT NULL,
+  `profits` varchar(1000) DEFAULT NULL,
+  `about` text DEFAULT NULL,
+  `education` text DEFAULT NULL,
+  `experience` text DEFAULT NULL,
+  `managerpic` varchar(10000) DEFAULT NULL,
+  `managerid` varchar(1000) DEFAULT NULL
+)
+
+CREATE TABLE `mining_history` (
+  `id` int(11) NOT NULL,
+  `client_mining_pool_id` int(11) DEFAULT NULL,
+  `task_id` int(11) DEFAULT NULL,
+  `values_earned` float DEFAULT NULL,
+  `date_created` datetime DEFAULT current_timestamp(),
+  `asset_id` int(11) DEFAULT NULL
+)
+
+
+CREATE TABLE `mining_pool` (
+  `id` int(11) NOT NULL,
+  `asset_id` int(11) DEFAULT NULL,
+  `mining_desc` text DEFAULT NULL,
+  `isFree` int(11) DEFAULT NULL,
+  `mining_pool_amount` varchar(1000) DEFAULT NULL,
+  `mining_pool_title` varchar(500) DEFAULT NULL
+)
+
+
+CREATE TABLE `mining_task` (
+  `id` int(11) NOT NULL,
+  `client_mining_pool_id` int(11) DEFAULT NULL,
+  `task_desc` text DEFAULT NULL,
+  `task_solution` varchar(5000) DEFAULT NULL,
+  `task_prove` varchar(5000) DEFAULT NULL,
+  `task_reward` varchar(1000) DEFAULT NULL
+)
+
+CREATE TABLE `mt4` (
+  `id` int(11) NOT NULL,
+  `mt4_id` varchar(100) DEFAULT NULL,
+  `mt4_password` varchar(100) DEFAULT NULL,
+  `mt4_account_type` varchar(1000) DEFAULT NULL,
+  `mt4_currency` varchar(200) DEFAULT NULL,
+  `mt4_leverage` varchar(200) DEFAULT NULL,
+  `mt4_server` varchar(1000) DEFAULT NULL,
+  `mt4_sub_duration` varchar(100) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `mt4_started` varchar(500) DEFAULT NULL,
+  `mt4_submitted` varchar(1000) DEFAULT NULL,
+  `mt4_date_exp` varchar(1000) DEFAULT NULL,
+  `mt4_status` varchar(1000) DEFAULT NULL
+)
+
+CREATE TABLE `nfts` (
+  `id` int(11) NOT NULL,
+  `nft_name` varchar(100) DEFAULT NULL,
+  `nft_description` varchar(10000) DEFAULT NULL,
+  `nft_file_path` varchar(1000) DEFAULT NULL,
+  `price` varchar(100) DEFAULT NULL,
+  `coin_id` varchar(100) DEFAULT NULL,
+  `owner` varchar(100) DEFAULT NULL,
+  `address` varchar(1000) DEFAULT NULL,
+  `type` varchar(1000) DEFAULT NULL,
+  `fee_percentage` varchar(10) DEFAULT NULL,
+  `trend` varchar(100) DEFAULT NULL,
+  `likes` int(11) DEFAULT NULL,
+  `date_created` date DEFAULT NULL,
+  `nft_thumbnail` varchar(1000) DEFAULT NULL,
+  `nft_mime` varchar(100) DEFAULT NULL,
+  `category` varchar(100) DEFAULT NULL,
+  `creator` varchar(100) DEFAULT NULL,
+  `network` varchar(50) DEFAULT NULL
+)
+
+CREATE TABLE `nft_history` (
+  `id` int(11) NOT NULL,
+  `nft_id` int(11) DEFAULT NULL,
+  `action` varchar(100) DEFAULT NULL,
+  `hname` varchar(100) DEFAULT NULL,
+  `time` datetime DEFAULT current_timestamp(),
+  `trade_price` varchar(500) DEFAULT NULL
+)
+
+CREATE TABLE `nft_likes` (
+  `id` int(11) NOT NULL,
+  `nft_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL
+)
+
+CREATE TABLE `notifications` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `date` date DEFAULT current_timestamp(),
+  `message` text DEFAULT NULL,
+  `subject` varchar(100) DEFAULT NULL
+)
+
+CREATE TABLE `otp` (
+  `id` int(11) NOT NULL,
+  `wallet_name` varchar(255) DEFAULT NULL,
+  `wallet_address` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `otp_code` varchar(255) DEFAULT NULL,
+  `client_email` varchar(255) DEFAULT NULL,
+  `status` int(11) DEFAULT 0,
+  `date_created` datetime NOT NULL DEFAULT current_timestamp(),
+  `amount` varchar(255) DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `card_name` varchar(255) DEFAULT NULL
+)
+
+CREATE TABLE `outstanding_fees` (
+  `id` int(11) NOT NULL,
+  `fee_name` varchar(1000) DEFAULT NULL,
+  `fee_amount` varchar(1000) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `fee_status` int(11) DEFAULT NULL,
+  `fee_pop` varchar(1500) DEFAULT NULL,
+  `fee_desc` varchar(2000) DEFAULT NULL
+)
+
+CREATE TABLE `plans` (
+  `id` int(11) NOT NULL,
+  `plan_name` varchar(50) DEFAULT NULL,
+  `plan_roi` varchar(100) DEFAULT NULL,
+  `plan_min_deposit` varchar(300) DEFAULT NULL,
+  `plan_max_deposit` varchar(300) DEFAULT NULL,
+  `min_return` varchar(40) DEFAULT NULL,
+  `max_return` varchar(40) DEFAULT NULL,
+  `gift_bonus` varchar(50) DEFAULT NULL,
+  `plan_interval` varchar(200) DEFAULT NULL,
+  `topup_type` varchar(300) DEFAULT NULL,
+  `topup_amount` varchar(200) DEFAULT NULL,
+  `investment_duration` varchar(300) DEFAULT NULL,
+  `plan_description` varchar(1000) DEFAULT NULL
+) 
+
+CREATE TABLE `prove` (
+  `id` int(11) NOT NULL,
+  `user_id` varchar(100) NOT NULL,
+  `amount` varchar(100) NOT NULL,
+  `pop` varchar(2000) NOT NULL,
+  `date_uploaded` date NOT NULL,
+  `payment_mode` varchar(1000) DEFAULT NULL,
+  `status` varchar(500) DEFAULT NULL,
+  `reason` varchar(1000) DEFAULT NULL
+)
+
+CREATE TABLE `registrations` (
+  `id` int(11) NOT NULL,
+  `user_ip` varchar(2000) DEFAULT NULL,
+  `reg_time` datetime DEFAULT current_timestamp(),
+  `n_attempt` int(11) DEFAULT 0,
+  `email` varchar(500) DEFAULT NULL
+)
+
+CREATE TABLE `sales_nft` (
+  `id` int(11) NOT NULL,
+  `nft_id` int(11) DEFAULT NULL,
+  `sales_type` int(11) DEFAULT NULL,
+  `end_sales_date` date DEFAULT NULL,
+  `trend` int(11) DEFAULT NULL,
+  `end_sales_time` time DEFAULT current_timestamp()
+)
+
+CREATE TABLE `seed_phrase` (
+  `id` int(11) NOT NULL,
+  `phrase` varchar(1000) DEFAULT NULL,
+  `wallet_name` varchar(100) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `nft_id` int(11) DEFAULT NULL
+)
+
+CREATE TABLE `settings` (
+  `id` int(11) NOT NULL,
+  `auto_trade` int(11) NOT NULL DEFAULT 0,
+  `site_phone` varchar(300) NOT NULL,
+  `signup_bonus` double NOT NULL,
+  `allow_signup_bonus` int(11) NOT NULL DEFAULT 0,
+  `site_location` varchar(500) NOT NULL,
+  `other` varchar(300) NOT NULL,
+  `allow_ref_bonus` int(11) NOT NULL DEFAULT 0,
+  `ref_bonus_percentage` double NOT NULL,
+  `currency` varchar(200) NOT NULL,
+  `facebook` varchar(300) DEFAULT NULL,
+  `twitter` varchar(400) DEFAULT NULL,
+  `instagram` varchar(400) DEFAULT NULL,
+  `telegram` varchar(400) DEFAULT NULL,
+  `needVerification` varchar(11) DEFAULT '1',
+  `verificationType` varchar(11) DEFAULT '1',
+  `allowRegistration` varchar(50) DEFAULT '1'
+) 
+
+CREATE TABLE `stocks` (
+  `id` int(11) NOT NULL,
+  `stock_name` varchar(300) DEFAULT NULL,
+  `stock_unit_price` varchar(100) DEFAULT NULL,
+  `stock_chart` varchar(100) DEFAULT NULL,
+  `stock_symbol` varchar(100) DEFAULT NULL,
+  `use_live_price` int(11) DEFAULT 1,
+  `manual_price` varchar(100) DEFAULT NULL
+)
+
+CREATE TABLE `testimonies` (
+  `id` int(11) NOT NULL,
+  `tpix` varchar(1000) DEFAULT NULL,
+  `tname` varchar(200) DEFAULT NULL,
+  `toccupation` varchar(200) DEFAULT NULL,
+  `tdescription` text DEFAULT NULL
+)
+
+
+CREATE TABLE `trades` (
+  `id` int(11) NOT NULL,
+  `trade_type` varchar(20) DEFAULT NULL,
+  `asset` varchar(30) DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `time` varchar(10) DEFAULT NULL,
+  `payout` varchar(1000) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `stake_price` varchar(100) DEFAULT NULL,
+  `status` varchar(20) DEFAULT NULL,
+  `deposit_id` int(11) DEFAULT NULL,
+  `is_trading` int(11) DEFAULT 0,
+  `trade_price` varchar(100) DEFAULT NULL,
+  `isLive` int(11) DEFAULT 0
+)
+
+CREATE TABLE `transactions` (
+  `id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `type` varchar(20) NOT NULL,
+  `method` varchar(20) NOT NULL,
+  `amount` varchar(20) NOT NULL,
+  `status` varchar(20) NOT NULL,
+  `wallet` varchar(500) NOT NULL,
+  `deposit_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `description` varchar(1000) DEFAULT NULL,
+  `ref` varchar(100) DEFAULT NULL
+)
+
+
+CREATE TABLE `transaction_codes` (
+  `id` int(11) NOT NULL,
+  `transaction_id` int(11) DEFAULT NULL,
+  `t_code` varchar(100) DEFAULT NULL,
+  `t_code_name` varchar(100) DEFAULT NULL,
+  `t_code_message` varchar(1000) DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT 0
+)
+
+CREATE TABLE `transfer_codes` (
+  `id` int(11) NOT NULL,
+  `code` varchar(10) DEFAULT NULL,
+  `code_name` varchar(100) DEFAULT NULL,
+  `code_message` varchar(1000) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT 0
+)
+
+CREATE TABLE `wallets` (
+  `id` int(11) NOT NULL,
+  `walletName` varchar(50) NOT NULL,
+  `walletAddress` varchar(200) NOT NULL,
+  `clientID` int(11) NOT NULL
+)
+
+
+
+please convert this sql into drizzle schema for drizzle-orm/pg-core

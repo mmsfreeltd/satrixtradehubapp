@@ -1,0 +1,1 @@
+ALTER TABLE "client_expert" ADD COLUMN "payment_status" integer DEFAULT 0;

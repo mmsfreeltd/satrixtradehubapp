@@ -1,0 +1,69 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1746413548177,
+      "tag": "0000_dry_mandarin",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1747043650951,
+      "tag": "0001_wooden_avengers",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1747050457130,
+      "tag": "0002_amused_tomorrow_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1747160951762,
+      "tag": "0003_foamy_ikaris",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1747425937193,
+      "tag": "0004_flashy_shatterstar",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1748261876135,
+      "tag": "0005_flowery_patch",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1748265908726,
+      "tag": "0006_daffy_ben_parker",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1748275763459,
+      "tag": "0007_dark_tigra",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1748435458074,
+      "tag": "0008_mushy_grey_gargoyle",
+      "breakpoints": true
+    }
+  ]
+}
